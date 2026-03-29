@@ -1,8 +1,8 @@
-# dbg-scripts
+# dbg-scripts 🛠️
 
-Random scripts to aid debugging on Windows.
+Random scripts to aid debugging on Windows. 🪟
 
-## Disclaimer
+## Disclaimer ⚠️
 
 These scripts are provided **as-is**. They were written a long time ago for older
 Windows debugging setups and may not be completely functional on modern Windows
@@ -12,9 +12,9 @@ Most of the scripts assume you already have the Windows debugging tools
 installed, and some of them also expect additional tools such as ADPlus or
 Application Verifier.
 
-## Scripts
+## Scripts 📚
 
-### APITracer/CreateCdbScripts.bat
+### APITracer/CreateCdbScripts.bat 🔎
 
 Creates two CDB script files (`scriptDbg.txt` and `scriptBP.txt`) that can be
 used to record CLR API usage based on entries from `APITracer/APIs.csv`.
@@ -54,12 +54,12 @@ Notes:
 - The script comments note that private symbols may be required for breakpoints
   to bind correctly
 
-### APITracer/APIs.csv
+### APITracer/APIs.csv 🧾
 
 Companion data file used by `CreateCdbScripts.bat`. It contains the API list,
 categories, and breakpoint locations used to generate the CDB scripts.
 
-### SerialDumper/serialdumper.bat
+### SerialDumper/serialdumper.bat 💾
 
 Launches ADPlus to grab process dumps at periodic intervals.
 
@@ -78,7 +78,7 @@ Notes:
 - The script comments note that it should be run from an elevated window on
   Vista and later
 
-### TraverseHeap/traverseheap.bat
+### TraverseHeap/traverseheap.bat 🧠
 
 Uses CDB to attach to a process, runs `!traverseheap`, and writes the XML output
 to a timestamped file under `%TEMP%\DUMPS`.
@@ -97,7 +97,7 @@ Notes:
   be changed from `.loadby sos clr` to `.loadby sos mscorwks`
 - Assumes CDB and related debugging tools are already installed
 
-### AppverifierScripts/InstallAppVerifier.bat
+### AppverifierScripts/InstallAppVerifier.bat ✅
 
 Installs or uninstalls Application Verifier.
 
@@ -113,7 +113,7 @@ Notes:
 - Intended to be run elevated
 - The script expects an Application Verifier MSI layout relative to the script
 
-### AppverifierScripts/RunUnderAppVerifier.bat
+### AppverifierScripts/RunUnderAppVerifier.bat 🧪
 
 Runs a target executable under Application Verifier.
 
@@ -129,7 +129,7 @@ Notes:
 - The script comments note that the environment must already be initialized and
   that AppVerifier must already be installed
 
-### DumpPID/dumppid.txt
+### DumpPID/dumppid.txt 📦
 
 CDB command script that creates a full dump, captures module and stack
 information, copies symbols and binaries into a temporary folder, and opens the
@@ -141,7 +141,7 @@ Example usage:
 cdb -cf DumpPID\dumppid.txt -p <process id>
 ```
 
-### DumpPID/dumpproc.txt
+### DumpPID/dumpproc.txt 📂
 
 Companion CDB command script similar to `dumppid.txt`.
 
