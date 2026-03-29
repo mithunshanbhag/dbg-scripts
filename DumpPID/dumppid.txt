@@ -1,0 +1,25 @@
+.sympath+ SRV*%TEMP%*\\symbols\symbols
+.lines
+l+l
+l+s
+l+t
+.reload /f
+.dump /ma Process.dmp
+lm v
+~* kbn 3000
+.shell -i- rd /s /q "%temp%\TEMP_DUMP" 
+.shell -i- md "%temp%\TEMP_DUMP"
+.shell -i- md "%temp%\TEMP_DUMP\SYMBOLS"
+.shell -i- md "%temp%\TEMP_DUMP\BINARIES"
+.shell -i- -ci "lm" findstr /R ".*" > "%temp%\TEMP_DUMP\MODULES.TXT"
+.shell -i- -ci "lm v" findstr /R ".*" > "%temp%\TEMP_DUMP\MODULES_DETAILS.TXT"
+.shell -i- -ci "~* kbn 3000" findstr /R ".*" > "%temp%\TEMP_DUMP\STACK.TXT"
+.shell -i- -ci "~* kpn 3000" findstr /R ".*" > "%temp%\TEMP_DUMP\STACK_DETAILS.TXT"
+.shell -i- -ci "!for_each_module .echo @#SymbolFileName" findstr /i ".pdb" > "%temp%\TEMP_DUMP\SYMBOLS.TXT"
+.shell -i- -ci "!for_each_module .echo @#ImageName" findstr /R ".*" > "%temp%\TEMP_DUMP\BINARIES.TXT"
+.shell -x start /max /wait cmd /c "color F0 & title Copying dump file ... PLEASE WAIT ... & move /Y Process.dmp "%temp%\TEMP_DUMP\""
+.shell -x start /max /wait cmd /c "color F0 & title Copying symbols ... PLEASE WAIT ... & for /F "delims=" %i in (%temp%\TEMP_DUMP\SYMBOLS.TXT) do copy /Y "%i" "%temp%\TEMP_DUMP\SYMBOLS\" >>"%temp%\TEMP_DUMP\_symbolcopy_.log""
+.shell -x start /max /wait cmd /c "color F0 & title Copying binaries ... PLEASE WAIT ... & for /F "delims=" %i in (%temp%\TEMP_DUMP\BINARIES.TXT) do copy /Y "%i" "%temp%\TEMP_DUMP\BINARIES\" >>"%temp%\TEMP_DUMP\_bincopy_.log""
+.shell -x explorer %temp%\TEMP_DUMP\
+.detach
+q
