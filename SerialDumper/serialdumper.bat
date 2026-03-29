@@ -29,11 +29,11 @@ set PROCESS_NAME=
 
 @REM @todo change this later
 @REM set DEBUGGERS_LOCATION=\\bvtsrv2\cortest\mithuns\dbg\%PROCESSOR_ARCHITECTURE%
-set DEBUGGERS_LOCATION=c:\tools\dbg\
+set DEBUGGERS_LOCATION=%ProgramFiles(x86)%\Windows Kits\10\Debuggers\x64
 set DUMP_LOCATION="%TEMP%\SERIALDUMPS"
 set CONFIG_FILE="%cd%\adplus_config.xml"
 
-set ADPLUS=%DEBUGGERS_LOCATION%\adplus.vbs
+set ADPLUS="%DEBUGGERS_LOCATION%\adplus.vbs"
 set ADPLUS_ARGS=-c %CONFIG_FILE% -o %DUMP_LOCATION%
 
 
@@ -90,7 +90,7 @@ echo        ^<!-- defining basic settings (run mode, quiet mode, etc.) --^>     
 echo        ^<RunMode^> HANG ^</RunMode^>                                                     >> %CONFIG_FILE%
 echo        ^<AttachInterval^> 1 ^</AttachInterval^>                                          >> %CONFIG_FILE%
 echo        ^<AttachRepeats^> 25 ^</AttachRepeats^>                                           >> %CONFIG_FILE%
-echo        ^<Sympath^> SRV*%TEMP%*\\symbols\symbols ^</Sympath^>                             >> %CONFIG_FILE%
+echo        ^<Sympath^> SRV*%TEMP%\symbols*https://msdl.microsoft.com/download/symbols ^</Sympath^> >> %CONFIG_FILE%
 echo        ^<Option^> Quiet ^</Option^>                                                      >> %CONFIG_FILE%
 echo    ^</Settings^>                                                                         >> %CONFIG_FILE%
 echo    ^<PreCommands^>                                                                       >> %CONFIG_FILE%

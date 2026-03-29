@@ -35,7 +35,7 @@ set PROCESS_NAME=
 
 @REM @todo change this later
 set DUMP_LOCATION="%TEMP%\DUMPS"
-set DEBUGGER_PATH=c:\tools\dbg\cdb.exe
+set DEBUGGER_PATH="%ProgramFiles(x86)%\Windows Kits\10\Debuggers\x64\cdb.exe"
 set DEBUGGER_SCRIPT=cdbscript.txt 
 set DEBUGGER_ARGS=-cf %DEBUGGER_SCRIPT%
 
@@ -96,7 +96,7 @@ if defined PROCESS_ID (
 @REM of these settings. 
 @REM -----------------------------------------------------------------------
 
-echo .sympath+ SRV*%TEMP%*\\symbols\symbols;          > %DEBUGGER_SCRIPT%
+echo .symfix %TEMP%\symbols;                         > %DEBUGGER_SCRIPT%
 echo .loadby sos clr;                                >> %DEBUGGER_SCRIPT%
 echo !traverseheap -xml heap.xml;                    >> %DEBUGGER_SCRIPT%
 echo .detach;                                        >> %DEBUGGER_SCRIPT%

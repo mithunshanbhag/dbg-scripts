@@ -202,7 +202,7 @@ echo sxd vs                                                     >> %DEBUGGER_SCR
 echo sxd wkd                                                    >> %DEBUGGER_SCRIPT%
 echo sxd wob                                                    >> %DEBUGGER_SCRIPT%
 echo sxd wos                                                    >> %DEBUGGER_SCRIPT%
-echo .sympath+ SRV*%TEMP%*\\symbols\symbols;                    >> %DEBUGGER_SCRIPT%
+echo .symfix %TEMP%\symbols;                                   >> %DEBUGGER_SCRIPT%
 echo .lines -d                                                  >> %DEBUGGER_SCRIPT%
 echo l+l                                                        >> %DEBUGGER_SCRIPT%
 echo l+s                                                        >> %DEBUGGER_SCRIPT%

@@ -76,7 +76,7 @@ if NOT "%~x1" == ".exe" (
 @REM                uses critical sections properly.
 @REM  - Memory    : The Memory checks ensure APIs for virtual space manipulations are used 
 @REM                correctly (e.g. VirtualAlloc, VirtualFree, MapViewOfFile).
-@REM  - ThreadPool: The threadpool verification ensures correct usage of threadpool API’s and 
+@REM  - ThreadPool: The threadpool verification ensures correct usage of threadpool APIï¿½s and 
 @REM                enforces consistency checks on worker-thread-states after a callback.
 @REM  - TLS       : The TLS checks to ensure that Thread Local Storage APIs are used correctly.
 @REM  - SRWLock	  : The slim reader/writer (SRW) lock checks ensure that applications initialize, 
@@ -90,12 +90,12 @@ if NOT "%~x1" == ".exe" (
 @REM                predict whether that application would work as well if run with less 
 @REM                privilege (generally, as a normal user). For example, if the application 
 @REM                writes to files that only allow Administrators access, then that application 
-@REM                won’t be able to write to the same file if run as a non-administrator. 
+@REM                wonï¿½t be able to write to the same file if run as a non-administrator. 
 @REM                - Diagnostic: When running as a non-administrator, identify potential problems 
 @REM                that may already exist with the current run. Continuing the previous example, 
 @REM                if the application tries to write to a file that only grants members of the 
 @REM                Administrators group access, the application will get an ACCESS_DENIED error.
-@REM                If the application doesn’t operate correctly, this operation may be the 
+@REM                If the application doesnï¿½t operate correctly, this operation may be the 
 @REM                culprit. 
 @REM  - DangerourAPIs : The Dangerous API Verifier tracks to see if the application is 
 @REM                          using unsafe APIs (e.g. TerminateThread).
@@ -138,7 +138,7 @@ set LUAPRIV_STOPS=
 set DANGEROUSAPIS_STOPS=
 set DIRTYSTACKS_STOPS=
 
-set _NT_SYMBOL_PATH=%BVT_ROOT%;%EXT_ROOT%;%BVT_ROOT%\common\Tools\RunUnderAppVerifier\AppVerifier\%_tgtcpu%;SRV*%TEMP%*\\symbols\symbols
+set _NT_SYMBOL_PATH=%BVT_ROOT%;%EXT_ROOT%;%BVT_ROOT%\common\Tools\RunUnderAppVerifier\AppVerifier\%_tgtcpu%;SRV*%TEMP%\symbols*https://msdl.microsoft.com/download/symbols
 
 set DEBUGGER_PATH=%BVT_ROOT%\common\tools\%_tgtcpu%\debuggers\cdb.exe
 @REM -FUTURE- set DEBUGGER_ARGS=-g -G -cfr %BVT_ROOT%\common\tools\RunUnderAppVerifier\dbgscript.txt

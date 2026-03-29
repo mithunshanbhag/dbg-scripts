@@ -1,4 +1,4 @@
-.sympath+ SRV*%TEMP%*\\symbols\symbols
+.symfix %TEMP%\symbols
 .lines
 l+l
 l+s
