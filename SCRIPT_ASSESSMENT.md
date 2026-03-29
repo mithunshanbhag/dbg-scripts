@@ -4,14 +4,14 @@
 
 This report assesses the scripts currently committed in this repository:
 
-- `/home/runner/work/dbg-scripts/dbg-scripts/APITracer/CreateCdbScripts.bat`
-- `/home/runner/work/dbg-scripts/dbg-scripts/APITracer/APIs.csv`
-- `/home/runner/work/dbg-scripts/dbg-scripts/SerialDumper/serialdumper.bat`
-- `/home/runner/work/dbg-scripts/dbg-scripts/TraverseHeap/traverseheap.bat`
-- `/home/runner/work/dbg-scripts/dbg-scripts/AppverifierScripts/InstallAppVerifier.bat`
-- `/home/runner/work/dbg-scripts/dbg-scripts/AppverifierScripts/RunUnderAppVerifier.bat`
-- `/home/runner/work/dbg-scripts/dbg-scripts/DumpPID/dumppid.txt`
-- `/home/runner/work/dbg-scripts/dbg-scripts/DumpPID/dumpproc.txt`
+- `APITracer/CreateCdbScripts.bat`
+- `APITracer/APIs.csv`
+- `SerialDumper/serialdumper.bat`
+- `TraverseHeap/traverseheap.bat`
+- `AppverifierScripts/InstallAppVerifier.bat`
+- `AppverifierScripts/RunUnderAppVerifier.bat`
+- `DumpPID/dumppid.txt`
+- `DumpPID/dumpproc.txt`
 
 The goal of this document is to determine whether these scripts are likely to be functional on a modern Windows 10/11 machine with current debugging tools, and what would need to change or be provided to make them usable.
 
